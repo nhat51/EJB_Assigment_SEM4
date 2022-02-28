@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+<div>
+    <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
+        <button class="w3-bar-item w3-button w3-large"
+                onclick="w3_close()">Close &times;
+        </button>
+        <a href="Form.html" class="w3-bar-item w3-button">Add</a>
+        <a href="Detail.html" class="w3-bar-item w3-button">Detail</a>
+        <a href="List.html" class="w3-bar-item w3-button">List</a>
+    </div>
+
+    <div id="main">
+
+        <div class="w3-teal">
+            <button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;</button>
+            <div class="w3-container">
+                <h1>My Page</h1>
+            </div>
+        </div>
+
+        <div class="w3-container">
+            <h2>Flipped Stripes</h2>
+            <p>To flip the zebra-stripes, add thead around the table header:</p>
+
+            <form class="w3-container">
+                <p>
+                    <label>First Name</label>
+                    <input class="w3-input" type="text"></p>
+                <p>
+                    <label>Last Name</label>
+                    <input class="w3-input" type="text"></p>
+                <p>
+                    <label>Email</label>
+                    <input class="w3-input" type="text"></p>
+            </form>
+
+        </div>
+
+    </div>
+</div>
+<script src="js/sidebar.js"></script>
+</body>
+</html>
