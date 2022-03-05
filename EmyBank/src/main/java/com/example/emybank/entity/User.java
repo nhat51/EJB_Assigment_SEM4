@@ -31,15 +31,4 @@ public class User {
     @OneToMany(mappedBy = "user")
     Set<TransactionHistory> transactionHistories = new HashSet<>();
 
-    public User(int id, String name, String password, String accountNumber, String email, String phone, double balance, String role, int status) {
-        this.id = id;
-        this.name = name;
-        this.password = password;
-        this.accountNumber = accountNumber;
-        this.email = email;
-        this.phone = phone;
-        this.balance = balance;
-        this.role = role;
-        this.status = status;
-    }
 }
