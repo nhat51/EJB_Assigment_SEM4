@@ -7,9 +7,17 @@ import com.example.emybank.respository.LoanRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 
+import java.util.Optional;
+
 public class LoanService {
-    @Autowired
+
     LoanRepository loanRepository;
+    public Iterable<LoanDetail> findAll() {
+        return loanRepository.findAll();
+    }
+    public LoanDetail findById(int user_id) {
+        return loanRepository.findById(user_id).orElse(null);
+    }
     public ResponseApi create(LoanDto loanDto){
         LoanDetail exist = loanRepository.findLoanDetailByUser_id(loanDto.getUser_id());
         if (exist != null){
