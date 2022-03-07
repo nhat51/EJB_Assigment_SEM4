@@ -14,12 +14,12 @@ public class LoanApi {
     public ResponseEntity<ResponseApi> loan(@RequestBody LoanDto loanDto){
         return new ResponseEntity<>(service.create(loanDto), HttpStatus.CREATED);
     }
-    @RequestMapping("list")
+    @RequestMapping("showList")
     public Iterable<LoanDetail> findAll() {
         return service.findAll();
     }
-    @GetMapping("/{id}")
-    public LoanDetail findByID(@PathVariable int user_id) {
+    @GetMapping("/findById")
+    public LoanDetail findById(int user_id) {
         return service.findById(user_id);
     }
 }
