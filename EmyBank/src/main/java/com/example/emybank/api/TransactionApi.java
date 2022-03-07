@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RequestMapping("api/v1/transactions")
@@ -25,17 +26,23 @@ public class TransactionApi {
     //list
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<Object> getList(){
-        return new ResponseEntity<>(transactionService.getList(), HttpStatus.OK);
+        return new ResponseEntity<>(transactionService.getList(), HttpStatus.CREATED);
     }
 
     //findbyid
     @RequestMapping(method = RequestMethod.GET, path = "{id}")
     public ResponseEntity<Object> getDetail(@PathVariable int id){
-        Optional<TransactionHistory> optionalUser = transactionService.findById(id);
-        if (optionalUser.isPresent()){
-            return new ResponseEntity<>(optionalUser.get(), HttpStatus.OK);
+        Optional<TransactionHistory> optionalTransaction = transactionService.findById(id);
+        if (optionalTransaction.isPresent()){
+            return new ResponseEntity<>(optionalTransaction.get(), HttpStatus.OK);
         }else {
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }
     }
+
+   //findbyuserid
+   @RequestMapping(method = RequestMethod.GET,path = "search/{sender_id}")
+   public ResponseEntity<Object> findByUserId(@PathVariable int sender_id){
+       return new ResponseEntity<>(transactionService.findByUserId(sender_id),HttpStatus.OK);
+   }
 }

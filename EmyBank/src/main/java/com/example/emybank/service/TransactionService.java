@@ -9,4 +9,5 @@ public interface TransactionService {
     TransactionHistory save(TransactionHistory transaction);
     List<TransactionHistory> getList();
     Optional<TransactionHistory> findById(int id);
+    List<TransactionHistory> findByUserId( int sender_id);
 }
