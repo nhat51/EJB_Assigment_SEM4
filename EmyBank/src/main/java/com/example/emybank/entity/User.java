@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -24,7 +25,7 @@ public class User {
     private String accountNumber;
     private String email;
     private String phone;
-    private double balance;
+    private BigDecimal balance;
     private String role;
     private int status;
 

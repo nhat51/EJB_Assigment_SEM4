@@ -1,39 +1,43 @@
 package com.example.emybank.controller;
 
-import com.example.emybank.entity.TransactionHistory;
-import com.example.emybank.service.TransactionHistoryService;
+import com.example.emybank.dto.TransactionResult;
+import com.example.emybank.exception.CheckBalanceException;
+import com.example.emybank.exception.OverDraftException;
+import com.example.emybank.exception.UserNotExistException;
+import com.example.emybank.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @CrossOrigin
 @RestController
 @RequestMapping("api/v1/transactions")
 public class TransactionHistoryApi {
     @Autowired
-    TransactionHistoryService transactionHistoryService;
+    UserService userService;
 
-    @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<TransactionHistory> create (@RequestBody TransactionHistory transactionHistory){
-        transactionHistoryService.save(transactionHistory);
-        return new ResponseEntity<TransactionHistory>(transactionHistory, HttpStatus.CREATED);
-    }
+    private static final Logger log = LoggerFactory.getLogger(TransactionHistoryApi.class);
 
-    @RequestMapping(method = RequestMethod.GET, path ="/transactions/transfer/${sender_id}")
-    public List<TransactionHistory> findTransferHistory(@PathVariable int sender_id){
-        return transactionHistoryService.findTransactionHistoryBySender_id(sender_id);
-    }
+    @RequestMapping(method = RequestMethod.POST, consumes = { "application/json" })
+    public ResponseEntity transferMoney(@RequestBody TransactionResult request) throws Exception {
 
-    @RequestMapping(method = RequestMethod.GET, path = "/transactions/received/${received_id")
-    public List<TransactionHistory> findReceivedHistory(@PathVariable int receiver_id){
-        return transactionHistoryService.findTransactionHistoryByReceiver_id(receiver_id);
-    }
+        try {
+            userService.transferBalances(request);
 
-    @RequestMapping(method = RequestMethod.GET, path = "/transactions/history/${sender_id}")
-    public List<TransactionHistory> findTransactionHistoryByUser(@PathVariable int sender_id){
-        return transactionHistoryService.findTransactionHistoryByUser(sender_id);
+            TransactionResult result = new TransactionResult();
+            result.setSender_id(request.getSender_id());
+            result.setBalanceAfterTransfer(userService.checkBalance(request.getSender_id()));
+
+            return new ResponseEntity<>(result, HttpStatus.ACCEPTED);
+        } catch (UserNotExistException | OverDraftException e) {
+            log.error("Fail to transfer balances, please check with system administrator.");
+            throw e;
+        } catch (CheckBalanceException cbEx) {
+            log.error("Fail to check balances after transfer, please check with system administrator.");
+            throw cbEx;
+        }
     }
 }
