@@ -18,10 +18,7 @@ public class AccountApi {
 
     @RequestMapping(method = RequestMethod.POST,path = "register")
     public ResponseEntity<ResponseApi> register(@RequestBody UserDto userDto){
-        return new ResponseEntity<>(service.create(userDto), HttpStatus.OK);
+        return new ResponseEntity<>(service.create(userDto), HttpStatus.CREATED);
     }
-    @RequestMapping(method = RequestMethod.POST,path = "login")
-    public String login(@RequestBody UserDto userDto){
-        return "Hello";
-    }
+
 }

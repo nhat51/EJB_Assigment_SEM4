@@ -40,7 +40,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        ApiAuthenticationFilter apiAuthenticationFilter = new ApiAuthenticationFilter(authenticationManagerBean());
+        ApiAuthenticationFilter apiAuthenticationFilter = new ApiAuthenticationFilter(authenticationManagerBean(),getApplicationContext());
         apiAuthenticationFilter.setFilterProcessesUrl("/api/v1/accounts/login");
         http.cors().configurationSource(request -> {
             CorsConfiguration cors = new CorsConfiguration();

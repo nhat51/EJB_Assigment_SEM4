@@ -31,6 +31,7 @@ public class UserService {
         user.setAccountNumber(userDto.getAccountNumber());
         user.setPhone(userDto.getPhone());
         user.setEmail(userDto.getEmail());
+        user.setBalance(1000000);
         user.setRole("USER");
         user.setStatus(1);
         return new ResponseApi(HttpStatus.CREATED,"Created",userRepository.save(user));
