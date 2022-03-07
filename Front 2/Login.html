@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/LoginPage.css" rel="stylesheet">
+
+</head>
+<body>
+<div class="container">
+    <div class="row ">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">Please Sign In</div>
+                </div>
+
+                <div class="card-body">
+                    <form accept-charset="UTF-8" role="form">
+                        <div class="form-group">
+                            <input class="form-control" id="loginemail" name="email" placeholder="E-mail" type="text">
+                            <span class="form-message" id="loginemail_error"></span>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" id="loginpassword" name="password" placeholder="Password"
+                                   type="password" value="">
+                            <span class="form-message" id="loginpassword_error"></span>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input name="remember" type="checkbox" value="Remember Me"> Remember Me
+                            </label>
+                        </div>
+                        <input class="btn btn-lg btn-success btn-block" style="background: #009688" onclick="return validate1();" type="submit"
+                               value="Login">
+
+                        <div class="register">
+                            <a href="Register.html">Click here to Register</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-4"></div>
+
+    </div>
+</div>
+
+
+<script src="js/loginjs.js"></script>
+
+</body>
+</html>

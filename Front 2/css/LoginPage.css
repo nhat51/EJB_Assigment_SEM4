@@ -1,0 +1,17 @@
+.container{
+    padding-top: 100px;
+}
+.card{
+    width: 400px;
+}
+.register{
+    padding-top: 10px;
+}
+.card-header{
+    height: 50px;
+}
+.checkbox{
+    margin-bottom: 0.5rem;
+}
+
+

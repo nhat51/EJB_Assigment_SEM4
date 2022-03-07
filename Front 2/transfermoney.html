@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+<div>
+    <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
+        <button class="w3-bar-item w3-button w3-large"
+                onclick="w3_close()">Close &times;
+        </button>
+        <a href="transfermoney.html" class="w3-bar-item w3-button">Transfer Money</a>
+        <a href="index.html" class="w3-bar-item w3-button">Transfer History</a>
+        <a href="index.html" class="w3-bar-item w3-button">Loan Detail</a>
+    </div>
+
+    <div id="main">
+
+        <div class="w3-teal">
+            <button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;</button>
+            <div class="w3-container">
+                <h1>My Page</h1>
+            </div>
+        </div>
+
+        <div class="w3-container">
+            <h2>Profile Infomation </h2>
+
+            <div class="col-md-8">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Account Name</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                Kenneth Valdez/2969996999999
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Balance</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                1000000
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Account Number Receiver</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                2969996999998
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Account Name Receiver</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                Kenneth Valdez
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Amount</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                10000
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Content</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                Transfer to ABCXYZ
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-4">
+                              <button type="button" class="btn btn-lg btn-info btn-block">Confirm</button>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
+<script src="js/sidebar.js"></script>
+</body>
+</html>
