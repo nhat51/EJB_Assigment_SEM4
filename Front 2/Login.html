@@ -18,22 +18,26 @@
                 </div>
 
                 <div class="card-body">
-                    <form accept-charset="UTF-8" role="form">
+                    <form name="login-form" role="form">
                         <div class="form-group">
-                            <input class="form-control" id="loginemail" name="email" placeholder="E-mail" type="text">
-                            <span class="form-message" id="loginemail_error"></span>
+                            <label for="loginemail">Name</label>
+                            <input class="form-control" id="loginemail" name="email" placeholder="Name" type="text">
                         </div>
                         <div class="form-group">
+                            <label for="loginpassword">Password</label>
                             <input class="form-control" id="loginpassword" name="password" placeholder="Password"
-                                   type="password" value="">
-                            <span class="form-message" id="loginpassword_error"></span>
+                                                                      type="password">
                         </div>
+                        <div id="error">
+
+                        </div>
+                       <!-- <span style="color: red" class="form-message" id="loginemail_error">Wrong email or password!!</span>-->
                         <div class="checkbox">
                             <label>
                                 <input name="remember" type="checkbox" value="Remember Me"> Remember Me
                             </label>
                         </div>
-                        <input class="btn btn-lg btn-success btn-block" style="background: #009688" onclick="return validate1();" type="submit"
+                        <input id="btn-login" class="btn btn-lg btn-success btn-block" style="background: #009688" type="submit"
                                value="Login">
 
                         <div class="register">
@@ -49,7 +53,7 @@
 </div>
 
 
-<script src="js/loginjs.js"></script>
+<script src="js/login.js"></script>
 
 </body>
 </html>

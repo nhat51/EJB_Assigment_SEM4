@@ -38,6 +38,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
         ApiAuthenticationFilter apiAuthenticationFilter = new ApiAuthenticationFilter(authenticationManagerBean());
         apiAuthenticationFilter.setFilterProcessesUrl("/api/v1/accounts/login");
         http.csrf().disable();
+        http.cors().disable();
         http.authorizeHttpRequests()
                 .antMatchers("/api/v1/accounts/register", "/api/v1/accounts/login").permitAll()
                 .anyRequest().authenticated()
