@@ -1,5 +1,6 @@
 package com.example.emybank.api;
 
+import com.example.emybank.dto.TransactionDto;
 import com.example.emybank.entity.TransactionHistory;
 import com.example.emybank.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,5 +45,10 @@ public class TransactionApi {
    @RequestMapping(method = RequestMethod.GET,path = "search/{sender_id}")
    public ResponseEntity<Object> findByUserId(@PathVariable int sender_id){
        return new ResponseEntity<>(transactionService.findByUserId(sender_id),HttpStatus.OK);
+   }
+
+   @RequestMapping(method = RequestMethod.POST,path = "transfer")
+    public ResponseEntity<Object> transferMoney(@RequestParam(name = "sender_id") int sender_id, @RequestBody TransactionDto transactionDto){
+        return new ResponseEntity<>(transactionService.transferMoney(sender_id, transactionDto),HttpStatus.CREATED);
    }
 }
