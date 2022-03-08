@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+<div>
+    <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
+        <button class="w3-bar-item w3-button w3-large"
+                onclick="w3_close()">Close &times;
+        </button>
+        <a href="index.html" class="w3-bar-item w3-button">Profile</a>
+        <a href="transfermoney.html" class="w3-bar-item w3-button">Transfer Money</a>
+        <a href="transferhistory.html" class="w3-bar-item w3-button">Transfer History</a>
+        <a href="loandetail.html" class="w3-bar-item w3-button">Loan Detail</a>
+    </div>
+
+    <div id="main">
+
+        <div class="w3-teal" style="background-color: #28a745" >
+            <button id="openNav"class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;  </button>
+            <div class="w3-container">
+                <h1>Welcome <p id="user-name"></p> </h1>
+            </div>
+        </div>
+
+        <div class="w3-container">
+            <h2>Profile Infomation </h2>
+
+            <div class="col-md-8">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Balance</h6>
+                            </div>
+                            <div id="balance" class="col-sm-9 text-secondary">
+                                1000000
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Account Number</h6>
+                            </div>
+                            <div id="account-number" class="col-sm-9 text-secondary">
+                                2969996999999
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Email</h6>
+                            </div>
+                            <div id="email" class="col-sm-9 text-secondary">
+                                abc@gmail.com
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Phone Number</h6>
+                            </div>
+                            <div id="phone" class="col-sm-9 text-secondary">
+                                816-9029-865
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/sidebar.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>

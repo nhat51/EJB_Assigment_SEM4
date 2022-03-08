@@ -1,0 +1,25 @@
+.leftside{
+    padding-left: 25px;
+    padding-top: 20px;
+}
+.seachbox{
+    padding-bottom: 15px;
+}
+.viewcontent,.formcontent{
+    padding-top: 15px
+}
+.card{
+    width: 100%;
+}
+.edittitle{
+    font-weight: bold;
+}
+.menuleft{
+    padding-bottom: 10px;
+}
+.formcontent a {
+    text-decoration: none;
+}
+.viewcontent a {
+    text-decoration: none;
+}

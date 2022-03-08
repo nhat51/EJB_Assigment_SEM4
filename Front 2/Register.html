@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register</title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/LoginPage.css">
+
+
+</head>
+<body>
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Register</div>
+      </div>
+
+      <div class="card-body">
+        <form name="register-form">
+          <div class="form-group">
+            <input id="username"   class="form-control" placeholder="Name" name="name" type="text">
+            <span class="form-message" id="username_error"></span>
+          </div>
+          <div class="form-group">
+            <input id="email"  class="form-control" placeholder="E-mail" name="email" type="text">
+            <span class="form-message" id="email-error"></span>
+
+          </div>
+          <div class="form-group">
+            <input id="accountNumber" pattern="\d*" class="form-control" placeholder="Account Number" name="accountNumber" type="text">
+            <span class="form-message" id="accountNumber-error"></span>
+          </div>
+          <div class="form-group">
+            <input id="phoneNumber"  class="form-control" placeholder="Phone Number" name="phoneNumber" type="text">
+            <span class="form-message" id="phone-error"></span>
+          </div>
+          <div class="form-group">
+            <input id="password" class="form-control" placeholder="Password" name="password" type="password">
+            <span class="form-message" id="password_error"></span>
+          </div>
+          <div class="form-group">
+            <input id="repassword" class="form-control" placeholder="Re Password" name="repassword" type="password" >
+            <span class="form-message" id="repassword_error"></span>
+          </div>
+
+          <button id="btn-register" class="btn btn-lg btn-success btn-block" style="background: #009688" type="submit">Register</button>
+
+          <div class="register">
+            <a href="Login%20Page.html">Click here to Login</a>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/register.js"></script>
+</body>
+</html>
