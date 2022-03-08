@@ -22,6 +22,7 @@ public class LoanDetail {
     private int loan_id;
     private int user_id;
     private LocalDate created_at;
+    private LocalDate approvedDate;
     private double amount;
     private double interest_rate;
     private int tenor; // thời hạn vay
