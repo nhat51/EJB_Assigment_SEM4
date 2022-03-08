@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
             else {
                 alert("Successful please login")
+                window.location.replace = "/Front 2/Login.html"
             }
         }
         xmlHttpRequest.open('POST', "http://localhost:8080/api/v1/accounts/register", false)

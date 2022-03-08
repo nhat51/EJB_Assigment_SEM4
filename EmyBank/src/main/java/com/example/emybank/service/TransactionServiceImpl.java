@@ -44,28 +44,33 @@ public class TransactionServiceImpl implements TransactionService{
 
     @Override
     public ResponseApi transferMoney(int sender_id, TransactionDto transactionDto) {
-        User sender = userRepository.getById(sender_id);
+        Optional<User> sender = userRepository.findById(sender_id);
         User receiver = userRepository.findUserByAccountNumber(transactionDto.getReceiverAccountNumber());
         if (receiver == null){
             return new ResponseApi(HttpStatus.BAD_REQUEST,"User does not exist","");
         }
         double amount = transactionDto.getAmount();
-        double balance = sender.getBalance();
+        double balance = sender.get().getBalance();
         if (amount > balance){
             return new ResponseApi(HttpStatus.BAD_REQUEST,"Balance is not enough","");
         }
         TransactionHistory history = new TransactionHistory();
         history.setAmount(amount);
-        history.setSender_id(sender_id);
+        history.setSender_id(sender.get().getId());
         history.setReceiver_id(receiver.getId());
         history.setCreated_at(LocalDate.now());
         history.setMessage(transactionDto.getMessage());
         history.setStatus("DONE");
+        history.setReceiverName(receiver.getName());
+        history.setSenderName(sender.get().getName());
 
-        sender.setBalance(balance - amount);
+        history.setUser(sender.get());
+        history.setReceiver(receiver);
+
+        sender.get().setBalance(sender.get().getBalance() - amount);
         receiver.setBalance(receiver.getBalance() + amount);
 
-        userRepository.save(sender);
+        userRepository.save(sender.get());
         userRepository.save(receiver);
 
         return new ResponseApi(HttpStatus.CREATED,"Success",transactionRepository.save(history));

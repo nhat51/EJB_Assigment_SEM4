@@ -1,40 +1,38 @@
 document.addEventListener('DOMContentLoaded', function (){
     var btnConfirm = document.getElementById("btn-confirm");
 
-    var txtAccountName = document.forms['transfer-form']['account-name']
-    var txtBalance = document.forms['transfer-form']['balance']
-    var txtAccountNumberReceiver = document.forms['transfer-form']['account-number-receiver']
-    var txtAccountNameReceiver = document.forms['transfer-form']['account-name-receiver']
-    var txtAmount= document.forms['transfer-form']['amount']
-    var txtContent = document.forms['transfer-form']['content']
+    var txtUserReceive = document.forms['transfer-form']['account-number']
+    var txtAmount = document.forms['transfer-form']['amount']
+    var txtMessage = document.forms['transfer-form']['message']
 
     btnConfirm.onclick = function (){
-        var accountName = txtAccountName.value;
-        var balance = txtBalance.value;
-        var accountNumberReceiver = txtAccountNumberReceiver.value;
-        var accountNameReceiver = txtAccountNameReceiver.value;
+        var receiver = txtUserReceive.value;
         var amount = txtAmount.value;
-        var content = txtContent.value;
+        var messgage = txtMessage.value;
+
 
         var dataTransfer = {
-            "accountName": accountName,
-            "balance": balance,
-            "accountNumberReceiver": accountNumberReceiver,
-            "accountNameReceiver": accountNameReceiver,
+            "receiverAccountNumber": receiver,
             "amount": amount,
-            "content": content
+            "message": messgage,
         }
 
         var xmlHttpRequest = new XMLHttpRequest();
         xmlHttpRequest.onreadystatechange = function () {
             if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 201){
+                var data = JSON.parse(xmlHttpRequest.responseText)
+                console.log(data)
                 alert("Transfer success!!!");
-                window.location.href ="/Front%202/transferhistory.html";
+                var localBalance = localStorage.getItem("balance") - amount;
+                localStorage.setItem("balance",localBalance);
+                window.location.href = "/Front 2/transferhistory.html"
             }
         }
 
-        xmlHttpRequest.open('post', "http://localhost:8080/api/v1/accounts/transfer-money", false)
+        xmlHttpRequest.open('post', "http://localhost:8080/api/v1/transactions/transfer?sender_id=" + localStorage.getItem("id"), false)
         xmlHttpRequest.setRequestHeader('Content-Type', 'application/json');
+        xmlHttpRequest.setRequestHeader('Accept', 'application/json')
+        xmlHttpRequest.setRequestHeader('Authorization', localStorage.getItem("access_token"))
         xmlHttpRequest.send(JSON.stringify(dataTransfer))
     }
 })

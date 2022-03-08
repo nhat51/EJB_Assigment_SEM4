@@ -42,8 +42,8 @@ public class TransactionApi {
     }
 
    //findbyuserid
-   @RequestMapping(method = RequestMethod.GET,path = "search/{sender_id}")
-   public ResponseEntity<Object> findByUserId(@PathVariable int sender_id){
+   @RequestMapping(method = RequestMethod.GET,path = "search")
+   public ResponseEntity<Object> findByUserId(@RequestParam(name = "user_id") int sender_id){
        return new ResponseEntity<>(transactionService.findByUserId(sender_id),HttpStatus.OK);
    }
 

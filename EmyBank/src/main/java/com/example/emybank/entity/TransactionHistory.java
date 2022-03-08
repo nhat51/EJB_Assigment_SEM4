@@ -23,14 +23,22 @@ public class TransactionHistory {
     private int transactionId;
     @Column(name = "sender_id",insertable = false,updatable = false)
     private int sender_id;
+    @Column(name = "receiver_id",insertable = false,updatable = false)
     private int receiver_id;
     private double amount;
     private String message;
     private LocalDate created_at;
     private String status;
+    private String senderName;
+    private String receiverName;
 
     @ManyToOne
     @JoinColumn(name = "sender_id")
     @JsonIgnore
     User user;
+
+    @ManyToOne
+    @JoinColumn(name = "receiver_id")
+    @JsonIgnore
+    User receiver;
 }
