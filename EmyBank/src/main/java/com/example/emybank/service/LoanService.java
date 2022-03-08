@@ -53,7 +53,7 @@ public class LoanService {
     public double calculate(int user_id,LoanDto loanDto) {
         double amount = loanDto.getAmount();
         double tenure = loanDto.getTenure();
-        double rate =(double) 5/ (100 * 12);
+        double rate =(double) 5/ (100 * loanDto.getTenure());
         double exponential = Math.pow((1 + rate), tenure);
         double amountPerMonth = amount * (rate * exponential / (exponential - 1));
 

@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         var nameValue = localStorage.getItem("name");
         var emailValue = localStorage.getItem("email");
+       console.log(nameValue)
         var balanceValue = localStorage.getItem("balance");
         var accountNumberValue = localStorage.getItem("account_number");
         var phoneValue = localStorage.getItem("phone");

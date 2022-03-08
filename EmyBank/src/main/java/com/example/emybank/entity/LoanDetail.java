@@ -2,6 +2,7 @@ package com.example.emybank.entity;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,6 +21,7 @@ public class LoanDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int loan_id;
+    @JoinColumn(name = "user_id")
     private int user_id;
     private LocalDate created_at;
     private LocalDate approvedDate;
@@ -27,4 +29,9 @@ public class LoanDetail {
     private double interest_rate;
     private int tenor; // thời hạn vay
     private String status;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id",insertable = false,updatable = false)
+    @JsonIgnore
+    User user;
 }

@@ -29,4 +29,7 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     Set<TransactionHistory> transactionHistories = new HashSet<>();
+
+    @OneToMany(mappedBy = "user")
+    Set<LoanDetail> loanDetails = new HashSet<>();
 }
